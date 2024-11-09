@@ -48,7 +48,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg,
 {
     WinExec_t pWinExec;
     DWORD     szWinExec[2],
-              szNotepad[2];
+              szNotepad[3];
     
     // now call WinExec to start notepad
     szWinExec[0] = *(DWORD*)"WinE";
@@ -114,7 +114,7 @@ LPVOID FindExport(LPVOID base, PCHAR pszAPI){
 }
 
 #ifndef _MSC_VER
-#ifdef __i386__
+#ifndef __i386__
 /* for x86 only */
 unsigned long __readfsdword(unsigned long Offset)
 {

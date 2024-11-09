@@ -5,8 +5,7 @@ cl -nologo -Os xbin.cpp
 move /Y xbin.exe ..\bin\xbin.exe
 
 rem x86 version
-cl -DWINDOW -c -nologo -Os -O2 -Gm- -GR- -EHa -Oi -GS- -w payload.c
-link /order:@extrabytes_x86.txt /entry:WndProc /base:0 payload.obj -nologo -subsystem:console -nodefaultlib -stack:0x100000,0x100000
+cl -DWINDOW -D__i386__ -c -nologo -Os -O2 -Gm- -GR- -EHa -Oi -GS- -w payload.c /link /order:@extrabytes_x86.txt /entry:WndProc /base:0 payload.obj -nologo -subsystem:console -nodefaultlib -stack:0x100000,0x100000
 ..\bin\xbin.exe payload.exe .text
 
 echo "Compiling T1055.011_x86.exe"

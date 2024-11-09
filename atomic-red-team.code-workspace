@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"dotnet.defaultSolution": "disable",
+		"files.associations": {
+			"*.php": "php",
+			"*.blade.php": "blade",
+			"*.sol": "solidity",
+			"nttpp.h": "c",
+			"util.h": "c",
+			"processsnapshot.h": "c",
+			"ws2tcpip.h": "c",
+			"memoryapi.h": "c",
+			"wbemidl.h": "c",
+			"winsock2.h": "c",
+			"ewm.h": "c",
+			"ntddk.h": "c",
+			"intrin.h": "c"
+		},
+	}
+}

